@@ -1,0 +1,8 @@
+{
+  "name": "HappyBirthdapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue",
+  "id": "a08561f1"
+}
