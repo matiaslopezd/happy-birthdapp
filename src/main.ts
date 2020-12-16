@@ -30,7 +30,7 @@ const app = createApp(App)
   .use(IonicVue)
   .use(router);
 
-app.config.globalProperties.$baseURL = 'http://localhost:3030';
+app.config.globalProperties.$baseURL = process.env.NODE_ENV === 'production' ? 'https://aeb446aa0e8f.ngrok.io' : 'http://localhost:3030';
 axios.configure(app);
 capacitor.configure(app);
 
