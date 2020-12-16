@@ -1,8 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
+import axios from './plugins/axios';
+import capacitor from "@/plugins/capacitor";
 
 import { IonicVue } from '@ionic/vue';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -26,7 +29,11 @@ import './theme/variables.css';
 const app = createApp(App)
   .use(IonicVue)
   .use(router);
-  
+
+app.config.globalProperties.$baseURL = 'http://localhost:3030';
+axios.configure(app);
+capacitor.configure(app);
+
 router.isReady().then(() => {
   app.mount('#app');
 });
