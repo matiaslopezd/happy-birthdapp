@@ -1,56 +1,60 @@
 <template>
-  <div class="login-container -mt-10">
-    <img alt="upper-logo" :src="require('@/images/upper-logo.png')" style="width: 90px;" class="pb-4"/>
-    <img alt="logo" :src="require('@/images/HappyBirthapp.svg')" class="pb-2"/>
-    <p class="text-xs pb-10">Nunca vuelvas a olvidar un cumpleaños.</p>
-    <div class="overflow-hidden rounded-md pb-5">
-      <ion-item color="dark">
-        <ion-label position="stacked">Correo electrónico</ion-label>
-        <ion-input
-            v-model="email"
-            type="email"
-            autocorrect="off"
-            inputmode="email"
-            pattern="email"
-            placeholder="john@email.com"
-            size="email"
-        ></ion-input>
-      </ion-item>
-      <ion-item color="dark">
-          <ion-label position="stacked">Contraseña</ion-label>
-          <ion-input
-              v-model="password"
-              type="password"
-              autocorrect="off"
-              placeholder="***********"
-          ></ion-input>
-        </ion-item>
-    </div>
-    <ion-button
-        @click="authenticate"
-        fill="clear"
-        style="max-width: 250px;"
-        class="w-full bg-purple-600 rounded text-white">
-      Acceder
-    </ion-button>
-    <ion-alert
-      :is-open="alert"
-      header="Ooops!"
-      message="Correo electrónico o contraseña, inválido."
-      :buttons="['Ok']"
-      @onDidDismiss="alert = false"
-    >
-    </ion-alert>
-  </div>
+  <ion-page>
+    <ion-content color="dark">
+      <div class="login-container -mt-10">
+        <img alt="upper-logo" :src="require('@/images/upper-logo.png')" style="width: 90px;" class="pb-4"/>
+        <img alt="logo" :src="require('@/images/HappyBirthapp.svg')" class="pb-2"/>
+        <p class="text-xs pb-10">Nunca vuelvas a olvidar un cumpleaños.</p>
+        <div class="overflow-hidden rounded-md pb-5">
+          <ion-item color="dark">
+            <ion-label position="stacked">Correo electrónico</ion-label>
+            <ion-input
+                v-model="email"
+                type="email"
+                autocorrect="off"
+                inputmode="email"
+                pattern="email"
+                placeholder="john@email.com"
+                size="email"
+            ></ion-input>
+          </ion-item>
+          <ion-item color="dark">
+              <ion-label position="stacked">Contraseña</ion-label>
+              <ion-input
+                  v-model="password"
+                  type="password"
+                  autocorrect="off"
+                  placeholder="***********"
+              ></ion-input>
+            </ion-item>
+        </div>
+        <ion-button
+            @click="authenticate"
+            fill="clear"
+            style="max-width: 250px;"
+            class="w-full bg-purple-600 rounded text-white">
+          Acceder
+        </ion-button>
+        <ion-alert
+          :is-open="alert"
+          header="Ooops!"
+          message="Correo electrónico o contraseña, inválido."
+          :buttons="['Ok']"
+          @onDidDismiss="alert = false"
+        >
+        </ion-alert>
+      </div>
+    </ion-content>
+  </ion-page>
 </template>
 
 <script>
-import { IonItem, IonInput, IonLabel, IonButton, IonAlert } from '@ionic/vue';
+import { IonItem, IonInput, IonLabel, IonButton, IonAlert, IonPage, IonContent } from '@ionic/vue';
 import { useRouter } from 'vue-router';
 
 export default  {
   name: 'Login',
-  components: { IonItem, IonInput, IonLabel, IonButton, IonAlert },
+  components: { IonItem, IonInput, IonLabel, IonButton, IonAlert, IonPage, IonContent },
   data: () => ({
     email: '',
     password: '',
